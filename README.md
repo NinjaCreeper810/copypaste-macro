@@ -1,5 +1,6 @@
 Made for Python 3.10 but should be compatible with later versions
-
+### **Overview**
+This tool will take your input and paste it by simulating keystrokes at a selected speed and after a selected delay. The main utility of this tool is to copy into virtual machines that disallow/don't support copy/paste but you may find other uses.
 
 ## **Installation**
 

@@ -1,4 +1,3 @@
-#!/usr/bin/python
 from pynput.keyboard import Key, Controller
 import time
 import tkinter as tk

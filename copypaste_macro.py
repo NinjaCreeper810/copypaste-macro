@@ -5,6 +5,30 @@ import tkinter as tk
 
 hidden = True
 keyboard = Controller()
+shift = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "{", "}", "|", ":", '"', "<", ">", "?"]
+originals = {"~" : "`",
+             "!" : "1",
+             "@" : "2",
+             "#" : "3",
+             "$" : "4",
+             "%" : "5",
+             "^" : "6",
+             "&" : "7",
+             "*" : "8",
+             "(" : "9",
+             ")" : "0",
+             "_" : "-",
+             "+" : "=",
+             "{" : "[",
+             "}" : "]",
+             "|" : "\\",
+             ":" : ";",
+             '"' : "'",
+             "<" : ",",
+             ">" : ".",
+             "?" : "/"
+             }
+
 
 def type_phrase():
     time.sleep(float(delayentry.get()))
@@ -12,8 +36,13 @@ def type_phrase():
     for each in str(input):
         time.sleep(float(chardelay.get()))
         if each != " ":
-            keyboard.press(f'{each}')
-            keyboard.release(f'{each}')
+            if each not in shift:
+                keyboard.press(f'{each}')
+                keyboard.release(f'{each}')
+            else:
+                with keyboard.pressed(Key.shift):
+                    keyboard.press(f"{originals[each]}")
+                    keyboard.release(f"{originals[each]}")
         else:
             keyboard.press(Key.space)
             keyboard.release(Key.space)
